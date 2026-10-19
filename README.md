@@ -1,24 +1,47 @@
 # README
+OneVel(ワンベル)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+１、サービス概要
 
-Things you may want to cover:
+　　愛犬にしてあげたいことを探せるペット宿検索アプリ。
 
-* Ruby version
+  　　地域で探せることはもちろん、目的別（宿を起点に観光地を一緒に巡りたい、自然豊かな土地で一緒にお散歩したい、
+   
+   　　ドッグランで自由に走り回らせたい、宿の食事を食べさせたい、etc...）で検索できることを目的としています。
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+２、制作背景
 
-* Database initialization
 
-* How to run the test suite
+３、課題の整理
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+４、想定ユーザー
 
-* ...
+
+５、競合調査
+
+
+
+６、このサービスが提供する価値
+
+
+
+７、実装内容
+
+８、このアプリの懸念点とその対策
+
+９、今後の展望
+
+１０、技術スタック
+
+    フロントエンド
+
+    バックエンド
+
+    インフラ・その他
+
+１１、ER図
+
+
