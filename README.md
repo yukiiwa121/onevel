@@ -136,12 +136,27 @@ OneVel(ワンベル)
 ---
 
 ## １０. 技術スタック
+### フロントエンド
+ - React + Vite（画面構成）
+ - TypeScript（画面構成）
+ - TailWind CSS（デザイン）
+ - Google Maps JavaScript API（地図表示）
+ - React Router（ページ遷移）
 
-    フロントエンド
+### バックエンド
+ - Ruby
+ - Ruby on Rails(API)
+ - Active Strage（宿の画像管理）
+ - Ransack（宿の絞り込み機能）
+ - Pundit（権限管理）
+ - bcrypt（ログイン機能）
+ - kaminari（ページネーション）
+ - RSpec（テスト）
 
-    バックエンド
-
-    インフラ・その他
+### インフラ・その他
+ - PostgresSQL（データベース）
+ - Docker（開発環境）
+ - Git/GitHub（ソースコード管理）
 
 ---
 
