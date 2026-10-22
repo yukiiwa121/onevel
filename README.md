@@ -152,6 +152,8 @@ OneVel(ワンベル)
  - bcrypt（ログイン機能）
  - kaminari（ページネーション）
  - RSpec（テスト）
+ - Geocoder（住所の座標変換）
+ - Google Geocoding API（座標変換後に地図へ表示）
 
 ### インフラ・その他
  - PostgresSQL（データベース）
