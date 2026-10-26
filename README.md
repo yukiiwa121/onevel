@@ -172,7 +172,7 @@ OneVel(ワンベル)
 
 ## １１. ER図
 
-![OneVel-ER図](app/assets/images/OneVel-ER図.pdf)
+![OneVel-ER図](app/assets/images/OneVel-ER図改訂版.pdf)
 
 
 
