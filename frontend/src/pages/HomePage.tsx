@@ -10,7 +10,7 @@ function HomePage() {
         </header>
 
       <main className="flex min-h-[80vh] flex-col items-center justify-center px-4">
-          <h1 className="mb-6 text-center text-4xl font-4xl font-bold text-green-800">
+          <h1 className="mb-6 text-center text-4xl font-bold text-green-800">
              キャッチコピーを記載
           </h1>
 
