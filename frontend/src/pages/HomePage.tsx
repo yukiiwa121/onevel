@@ -4,7 +4,7 @@ function HomePage() {
  return (
     <div className="min-h-screen bg-green-50">
         <header className="bg-white px-8 py-5 shadow-sm">
-            <Link to="/" className="text-2xl font-bold textgreen-800">
+            <Link to="/" className="text-2xl font-bold text-green-800">
               OneVel
             </Link>
         </header>
