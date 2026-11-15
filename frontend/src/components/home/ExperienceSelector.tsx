@@ -34,15 +34,20 @@ import { useNavigate } from 'react-router'
                       愛犬と楽しみたい体験を選んでぴったりの宿を見つけよう！
                  </p>
 
-                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+                 <div className="flex flex-wrap justify-center gap-6">
                      {experiences.map((experience) => (
-                          <ExperiencesCard
+                          <div 
                              key={experience.id}
-                             name={experience.name}
-                             description={experience.description}
-                             selected={selectedIds.includes(experience.id)}
-                             onClick={() => toggleExperience(experience.id)}
-                            />
+                             className="w-full sm:w-[calc((100%-3rem)/3)]"
+                            >
+                             <ExperiencesCard
+                                 name={experience.name}
+                                 description={experience.description}
+                                 image={experience.image}
+                                 selected={selectedIds.includes(experience.id)}
+                                 onClick={() => toggleExperience(experience.id)}
+                               />
+                            </div>
                        ))}
                  </div>
 

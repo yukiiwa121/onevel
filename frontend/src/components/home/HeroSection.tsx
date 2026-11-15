@@ -1,5 +1,6 @@
 function HeroSection() {
-    return (
+    
+return (
         <section 
           className="relative flex flex-1 items-center bg-cover bg-center px-6 py-16 md:px-16"
           style={{
@@ -22,5 +23,6 @@ function HeroSection() {
         </section>
     )
 }
+
 
 export default HeroSection
