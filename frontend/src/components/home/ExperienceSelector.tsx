@@ -1,7 +1,17 @@
 import { experiences } from '../../data/experiences'
 import ExperiencesCard from './ExperienceCard'
+import { useState } from'react'
 
  function ExperienceSelector() {
+     const [selectedIds, setSelectedIds] = useState<string[]>([])
+
+     const toggleExperience = (id: string) => {
+         setSelectedIds((prev) =>
+             prev.includes(id) ? 
+             prev.filter((selectedId) => selectedId !== id) : [...prev, id]
+            )
+        }
+
      return (
          <section className="bg-green-50 px-6 py-16">
              <div className="mx-auto max-w-6xl">
@@ -19,6 +29,8 @@ import ExperiencesCard from './ExperienceCard'
                              key={experience.id}
                              name={experience.name}
                              description={experience.description}
+                             selected={selectedIds.includes(experience.id)}
+                             onClick={() => toggleExperience(experience.id)}
                             />
                        ))}
                  </div>
