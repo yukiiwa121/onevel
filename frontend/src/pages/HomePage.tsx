@@ -1,5 +1,6 @@
 import { Link } from 'react-router'
 import HeroSection from '../components/home/HeroSection'
+import ExperienceSelector from '../components/home/ExperienceSelector'
 
 function HomePage() {
  return (
@@ -12,6 +13,7 @@ function HomePage() {
 
         <main className="flex flex-1 flex-col">
           <HeroSection />
+          <ExperienceSelector />
         </main>
     </div>
   ) 
