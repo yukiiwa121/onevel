@@ -40,7 +40,7 @@ function SearchResultsPage() {
 
                 <div className="rounded-xl bg-white p-10 text-center shadow-sm">
                     <p className="text-gray-600">
-                        実際の検索結果はまだ未実装
+                        検索結果は未実装
                     </p>
                 </div>
             </main>
