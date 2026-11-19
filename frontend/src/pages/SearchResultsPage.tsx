@@ -1,5 +1,7 @@
 import { Link, useSearchParams } from 'react-router' 
 import { experiences } from '../data/experiences'
+import { hotels } from '../data/hotels'
+import HotelCard from '../components/hotels/HotelCard'
 
 function SearchResultsPage() {
     const [searchParams] = useSearchParams()
@@ -38,14 +40,18 @@ function SearchResultsPage() {
                     ))}
                 </div>
 
-                <div className="rounded-xl bg-white p-10 text-center shadow-sm">
-                    <p className="text-gray-600">
-                        検索結果は未実装
-                    </p>
+                {/* 宿一覧 */}
+                <h2 className="mb-6 text-2xl font-bold text-green-800">
+                    宿一覧
+                </h2>
+ 
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {hotels.map((hotel) => (
+                        <HotelCard key={hotel.id} hotel={hotel} />
+                    ))}
                 </div>
             </main>
         </div>
-
     )
 }
 
