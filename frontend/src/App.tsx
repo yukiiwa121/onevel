@@ -5,13 +5,13 @@ import viteLogo from './assets/vite.svg'
 import './App.css'
 import { Routes, Route } from 'react-router'
 import HomePage from './pages/HomePage'
-import HotelsPage from './pages/HotelsPage'
+import SearchResultsPage from './pages/SearchResultsPage'
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/hotels" element={<HotelsPage />} />
+      <Route path="/hotels" element={<SearchResultsPage />} />
     </Routes>
   )
 }
