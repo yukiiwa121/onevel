@@ -3,6 +3,7 @@ import { experiences } from '../data/experiences'
 import { hotels } from '../data/hotels'
 import HotelCard from '../components/hotels/HotelCard'
 import { useEffect, useState } from 'react'
+import SearchSidebar from '../components/hotels/SearchSidebar'
 
 function SearchResultsPage() {
     const [searchParams, setSearchParams] = useSearchParams()
@@ -62,33 +63,40 @@ function SearchResultsPage() {
                     ))}
                 </div>
 
-                {/* 宿一覧 */}
-                <h2 className="mb-6 text-2xl font-bold text-green-800">
-                    検索結果：{filteredHotels.length}件
-                </h2>
+                <div className="grid grid-cols-1 gap-6 lg:grid-cols-[260px_minmax(0,1fr)]">
+                    {/* 左側：検索サイドバー */}
+                    <SearchSidebar />
+
+                    {/* 右側：宿一覧 */}
+                    <div className="min-w-0">
+                        <h2 className="mb-6 text-2xl font-bold text-green-800">
+                            検索結果：{filteredHotels.length}件
+                        </h2>
  
-                {experienceIds.length === 0 ? (
-                   <div className="rounded-xl bg-white p-10 text-center">
-                      <p className="mb-4 text-gray-600">
-                        体験カテゴリーが選択されていません
-                      </p>
-                      <Link to="/" className="font-medium text-green-700 underline">
-                        トップページで体験カテゴリーを選択する
-                      </Link>
-                   </div>
-                ) : filteredHotels.length === 0 ? (
-                  <div className="rounded-xl bg-white p-10 text-center ">
-                     <p className="text-gray-600">
-                         条件に一致する宿が見つかりませんでした
-                      </p>
+                        {experienceIds.length === 0 ? (
+                            <div className="rounded-xl bg-white p-10 text-center">
+                                <p className="mb-4 text-gray-600">
+                                    体験カテゴリーが選択されていません
+                                </p>
+                                <Link to="/" className="font-medium text-green-700 underline">
+                                    トップページで体験カテゴリーを選択する
+                                </Link>
+                            </div>
+                        ) : filteredHotels.length === 0 ? (
+                             <div className="rounded-xl bg-white p-10 text-center ">
+                                  <p className="text-gray-600">
+                                     条件に一致する宿が見つかりませんでした
+                                  </p>
+                             </div>
+                            ) : (
+                                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                                        {filteredHotels.map((hotel) => (
+                                        <HotelCard key={hotel.id} hotel={hotel} />
+                                        ))}
+                                 </div>
+                        )}
                     </div>
-                ) : (
-                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                     {filteredHotels.map((hotel) => (
-                        <HotelCard key={hotel.id} hotel={hotel} />
-                     ))}
-                    </div>
-                )}
+                </div>
 
                 {/*体験カテゴリーの再検索 */}
                 {experienceIds.length >0 && (
