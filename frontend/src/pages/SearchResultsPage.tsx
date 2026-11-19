@@ -2,14 +2,29 @@ import { Link, useSearchParams } from 'react-router'
 import { experiences } from '../data/experiences'
 import { hotels } from '../data/hotels'
 import HotelCard from '../components/hotels/HotelCard'
+import { useState } from 'react'
 
 function SearchResultsPage() {
-    const [searchParams] = useSearchParams()
+    const [searchParams, setSearchParams] = useSearchParams()
 
     //URLからカテゴリーIDを取得
     const experienceIds = searchParams.get('experiences') ?.split(',').filter(Boolean) ?? []
+    const toggleExperience = (id: string) => {
+        setSelectedIds((prev) =>
+          prev.includes(id) ? prev.filter((selectedId) => selectedId !== id) : [...prev, id]
+        )  
+    }
+    const handleSearch = () => {
+        if (selectedIds.length === 0) return
 
+        setSearchParams({
+            experiences: selectedIds.join(','),
+        })
+    }
+
+    
     //IDと一致する体験カテゴリーを取得
+    const [selectedIds, setSelectedIds] = useState<string[]>(experienceIds)
     const selectedExperiences = experiences.filter((experience) =>
     experienceIds.includes(experience.id)
     )
@@ -28,7 +43,7 @@ function SearchResultsPage() {
             </header>
 
             <main className="mx-auto max-w-6xl px-6 py-12">
-                <h1 className="mb-6 text-3xl font-vold text-green-800">
+                <h1 className="mb-6 text-3xl font-bold text-green-800">
                     宿の検索結果
                 </h1>
 
@@ -70,6 +85,36 @@ function SearchResultsPage() {
                      {filteredHotels.map((hotel) => (
                         <HotelCard key={hotel.id} hotel={hotel} />
                      ))}
+                    </div>
+                )}
+
+                {/*体験カテゴリーの再検索 */}
+                {experienceIds.length >0 && (
+                    <div className="mt-12 rounded-xl bg-white p-4 shadow-sm">
+                        <h2 className="mb-4 text-lg font-bold text-green-800">
+                            体験カテゴリーを変更する
+                        </h2>
+                        
+                        <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+                            {experiences.map((experience) => (
+                                <label key={experience.id} className="flex cursor-pointer items-center gap-2">
+                                    <input type="checkbox" checked={selectedIds.includes(experience.id)}
+                                           onChange={() => toggleExperience(experience.id)}
+                                           className="accent-green-700"
+                                        />
+                                    <span className="text-sm text-gray-700">
+                                        {experience.name}
+                                    </span>
+                                </label>
+                            ))}
+                        </div>
+
+                        <button type="button" onClick={handleSearch}
+                                disabled={selectedIds.length === 0}
+                                className="rounded-lg bg-green-700 px-5 py-2 font-medium text-white 
+                                           hover:bg-green-800 disabled:cursor-not-allowed disabled:opacity-50">
+                                            この条件で再検索
+                        </button>
                     </div>
                 )}
             </main>
