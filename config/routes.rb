@@ -20,6 +20,8 @@ Rails.application.routes.draw do
         post "login", to: "sessions#create"
         get "me", to: "sessions#show"
         delete "logout", to: "sessions#destroy"
+        
+        get "dashboard", to: "dashboard#show"
       end
     end
   end
