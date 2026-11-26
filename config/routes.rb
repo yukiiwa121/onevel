@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
       namespace :admin do
         post "login", to: "sessions#create"
+        get "me", to: "sessions#show"
+        delete "logout", to: "sessions#destroy"
       end
     end
   end
